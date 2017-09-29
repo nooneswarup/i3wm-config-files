@@ -1,8 +1,10 @@
 [bar/bar]
 
 font-0 = "Overpass Mono:pixelsize=10;2.25"
+font-1 = FontAwesome:size=10;0
 
 #monitor = "DP1-8"
+bottom = true
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -10,7 +12,7 @@ scroll-down = i3wm-wsprev
 fixed-center = true
 
 width = 100%
-height = 30
+height = 20
 
 background = #1d1f21
 foreground = #707880
@@ -26,7 +28,9 @@ padding-left = 1
 padding-right = 1
 module-margin = 0
 
-modules-left = i3 
+tray-position = right
+
+modules-left = menu-apps i3
 modules-center = date
 modules-right = cpu memory
 
@@ -56,7 +60,7 @@ label-urgent-padding = 1
 [module/date]
 type = internal/date
 interval = 1.0
-date = %A, %d %B %I:%M %p
+date = %A, %d %B %H:%M %S
 
 # [module/github]
 # type = internal/github
@@ -76,3 +80,44 @@ type = internal/xwindow
 format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+format = <label> <ramp-coreload>
+label = CPU %percentage%%
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/cpuload]
+type = custom/script
+interval = 5
+format-underline = #f90000
+exec = ~/.config/polybar/cpuload.sh
+
+[module/menu-apps]
+type = custom/menu
+expand-right = true
+menu-0-0 = Chromium
+menu-0-0-exec = chromium &
+menu-0-1 = Files
+menu-0-1-exec = thunar &
+label-open = Menu
+label-close = X
+label-separator = |
+
+[module/memory]
+type = internal/memory
+label = RAM %gb_used%/%gb_free%
+
+
+
