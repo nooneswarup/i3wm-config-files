@@ -1,0 +1,13 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! "Color scheme for normal row" Set from: File
+rofi.color-normal:                   argb:B3000000, #ffffff, argb:B3000000, #268bd2, #ffffff
+! "Color scheme for urgent row" Set from: File
+rofi.color-urgent:                   argb:B3000000, #f3843d, argb:B3000000, #268bd2, #ffc39c
+! "Color scheme for active row" Set from: File
+rofi.color-active:                   argb:B3000000,  #268bd2, argb:B3000000, #268bd2, #205171
+! "Color scheme window" Set from: File
+rofi.color-window:                   argb:ee000000, #393939, #268bd2
+! "Separator style (none, dash, solid)" Set from: File
+rofi.separator-style:                solid
